@@ -41,9 +41,6 @@ public:
     // 设置定时器循环时间
     void SetRecycleTime(uint64_t ms) { m_recycleTime = ms; }
 
-    // 取消定时器
-    void Cancel();
-
     // 刷新
     void Refresh();
 

@@ -42,13 +42,6 @@ CTimer &CTimer::operator=(const CTimer &timer)
     return *this;
 }
 
-void CTimer::Cancel()
-{
-    m_time = 0;
-    m_recycleTime = 0;
-    m_callback = nullptr;
-}
-
 void CTimer::Refresh()
 {
     if (m_recycleTime > 0) {
