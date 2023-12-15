@@ -7,10 +7,14 @@ LOG_SO_LIB := -llog
 SRC_LIST := $(wildcard *.cpp)
 OBJ_LIST := $(patsubst %.cpp, %.o, $(SRC_LIST))
 
-main : main.o $(OBJ_LIST)
+MAIN := main.o
+
+TEST_TIMER := test_timer.o
+
+main : $(MAIN) $(OBJ_LIST)
 	$(CC) $^ -o $@ $(SO_LIBS)
 
-test_timer : test_timer.o $(OBJ_LIST)
+test_timer : $(TEST_TIMER) $(OBJ_LIST)
 	$(CC) $^ -o $@ $(SO_LIBS) $(LOG_SO_LIB)
 
 %.o : %.cpp
@@ -22,4 +26,4 @@ test_timer : test_timer.o $(OBJ_LIST)
 .PHONY: main test_timer clean
 
 clean:
-	-rm -rf $(OBJ_LIST)
+	-rm -rf $(OBJ_LIST) $(MAIN) $(TEST_TIMER)
